@@ -135,6 +135,92 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-how-to-sync-note" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/15/how-to-sync-note/">笔记云备份的简单方法</a>
+    </h1>
+  
+
+        
+        <a href="/2017/02/15/how-to-sync-note/" class="archive-article-date">
+  	<time datetime="2017-02-15T14:57:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-02-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>小笔记是我做的一个Android APP,一个简单的记录心情笔记的小工具，放到小米和酷安应用商店后，没想到每天还有上百人下载使用。也有用户提需求让增加云备份的功能。下面就是我如何设计这个功能的笔记。  </p>
+</blockquote>
+<p>先看看有了云备份功能后，用户笔记的分布场景  </p>
+<ol>
+<li>本地有，云上没有  </li>
+<li>本地无，云上有  </li>
+<li>本地无，云上无   </li>
+<li>本地有，云上也有，本地笔记比云上多    </li>
+<li>本地有，云上也有，本地笔记比云上少  </li>
+</ol>
+<p>挨个分析每种场景如何识别和处理。  </p>
+<p>场景1很简单。目前已发布的版本不支持云备份，如果用户升级版本后想用云备份功能就是这种场景了。<br>需要将本地笔记上传到云上。<br>场景识别和对应处理方法：  </p>
+<blockquote>
+<p>用户首次登陆账号的时候，查询本地有笔记，云上没有时，上传本地笔记到云上。<br>考虑到可能会上传失败的情况，在启动APP后，查询发现已经登录情况下，也需要识别是否该场景，如果是，启动后台任务，做一次上传。    </p>
+</blockquote>
+<p>场景2发生在用户换新手机了，要下载账号上备份在云上的笔记。<br>场景识别和对应处理方法  </p>
+<blockquote>
+<p>可以在用户首次登陆账号的时候，查询本地和云上的笔记数量来识别该场景。这种场景下下载云上的笔记到本地。与场景1一样，也要考虑下载可能失败的情况。在启动APP后，查询发现已经登录情况下，如果识别到该场景，启动后台任务，做一次下载。    </p>
+</blockquote>
+<p>场景3不需要做笔记的上传和下载。  </p>
+<p>场景4就比较复杂了。可能的一种发生原因是：用户非首次登陆，本地新建保存了一条笔记，上传的时候由于网络或服务器问题，上传失败了。</p>
+<p>场景5发生在本地删除一条笔记，请求服务器也做同步删除时，可能网络或服务器故障导致删除失败。  </p>
+<blockquote>
+<p>想要解决这2个场景，需要将本地和云上数据做区分。需要选择一个合适的标记来区分每一条笔记</p>
+<p>本地笔记数据库增加id属性， id是自增的。启动APP后，后台任务查询本地和云上笔记数量，识别到该场景后，比较本地和云笔记id，把云上多的笔记删掉。  </p>
+</blockquote>
+<p>重点说明下这个id属性  </p>
+<blockquote>
+<p>这个id要保持唯一。我的笔记老数据库有一个笔记id属性，是唯一且自增的。就想到正好用上这个属性了。测试发现有个验证的问题：在场景2时，从云上下载到本地的笔记会有新的id，这些id与云上笔记的id是不一样的。  </p>
+<p>重大设计问题啊，如何解决呢。我不想再推倒重来，再设计一次备份机制了。干脆再增加一个字段cmpId,在场景5时把云上笔记的id复制到本地数据库的cmpId,保证本地数据库cmpId值唯一。</p>
+</blockquote>
+<p>以上是我在笔记APP增加云备份功能识别到的问题和可能的解决办法，可能有未识别到的场景，我的解决办法比较简单粗暴，但目前看满足当前的需求。欢迎大家多交流学习。最后分享一点我的感受。</p>
+<blockquote>
+<p>没有完美的解决问题的方案，只有满足当前需求和资源的办法。  </p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/02/15/how-to-sync-note/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-user-story" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
