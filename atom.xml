@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-02-18T15:01:38.000Z</updated>
+  <updated>2017-03-02T15:21:16.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我心中的优秀技术人是怎样的</title>
+    <link href="http://yoursite.com/2017/03/02/how-good-technician-works/"/>
+    <id>http://yoursite.com/2017/03/02/how-good-technician-works/</id>
+    <published>2017-03-02T15:11:21.000Z</published>
+    <updated>2017-03-02T15:21:16.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>作为一个芯片应用技术工程师，每天的主要工作就是支持客户定位各种问题。下面说下2种典型的客户类型。对话取材自经验，如有雷同，纯属巧合。  </p>
+<p>典型客户A，一般我们的沟通过程是这样的：  </p>
+<blockquote>
+<p>A： 有个业务不通的问题支持下啊。。<br>我：什么问题啊？<br>A：业务切换后不通<br>我：复现情况是？以前测试有没有问题？<br>A：啊，我也不太清楚，我拉下测试的问下  </p>
+</blockquote>
+<p>10分钟后  </p>
+<blockquote>
+<p>A： 不好意思，才联系上，刚问了，以前测试过，没问题。新版本出现的，测试了几次就出了。<br>我：那你先查下XX模块的告警，看到哪里就开始故障了。<br>A：怎么查？我拉下XX问下怎么查。  </p>
+</blockquote>
+<p>好不容易XX接入进来了，发过来几个查询命令，教A如何使用，如何查看是否正常。20分钟又过去了。  </p>
+<blockquote>
+<p>A： 查到了，是XX告警，这个可能是啥原因啊？<br>我：可能跟单板上的小逻辑有关系。你在小逻辑那做个XX环回定界下是谁的问题。<br>A：那我再呼下小逻辑的XX问下怎么做环回。  </p>
+</blockquote>
+<p>。。。  </p>
+<p>就这样再经过好几个来回，拉了N个人，确认了M个告警后，才找到问题的原因。  </p>
+<p>再来看看典型客户B：   </p>
+<blockquote>
+<p>B： 我这有个问题，业务路径是XX，做XX测试，以前是OK的，新版本概率出问题，查询XX模块有XX告警，为了定界，我在小逻辑XX模块做了个环回没有问题，应该是芯片的XX模块故障了，帮看下可能是啥原因。<br>我： 你查询下XX配置，看是多少。<br>B： 查了下，是XX。<br>我： 这个地方可能配置不合理，建议修改为XX再对比测试下。  </p>
+</blockquote>
+<p>谈话间，问题分分钟就解决了。没有对比，就没有伤害。我想谁都喜欢和B合作，也希望自己成为像B一样的人。那看看B都有哪些特质：  </p>
+<p><strong>独立分析问题的能力</strong>  </p>
+<blockquote>
+<p>碰到问题，不是马上拉人。而是独立分析下，实在没办法了才想到求助他人。  </p>
+</blockquote>
+<p><strong>擅长举一反三</strong>  </p>
+<blockquote>
+<p>问题出现了，他会思考很多：触发条件？恢复手段？版本差异？如何定界？还会去亲自试验验证自己的判断。  </p>
+</blockquote>
+<p><strong>不怕问题，遇到问题就来劲，有好奇心</strong>    </p>
+<blockquote>
+<p>A的口头禅是芯片太复杂了，不懂啊。但在和B的合作过程中，你会发现他想主动了解芯片。   </p>
+</blockquote>
+<p><strong>善于整理和记录</strong>  </p>
+<blockquote>
+<p>自己会记录和整理常用的定位命令。  </p>
+</blockquote>
+<p>。。。(代表其他很多，就不一一列举了)  </p>
+<p>以上就是我心中的优秀技术人的特质。大家一起努力吧，成为别人眼中的那个牛A和牛C之间的人。  </p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;作为一个芯片应用技术工程师，每天的主要工作就是支持客户定位各种问题。下面说下2种典型的客户类型。对话取材自经验，如有雷同，纯属巧合。  &lt;/p&gt;
+&lt;p&gt;典型客户A，一般我们的沟通过程是这样的：  &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;A： 有个业务不通的问题支持下啊。。
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>笔记云备份的简单方法</title>
